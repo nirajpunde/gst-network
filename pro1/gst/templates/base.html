@@ -1,0 +1,46 @@
+
+
+<html>
+
+<body>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<table>
+  <tr>
+    <th>txn_no</th>
+    <th>details</th>
+    <th>amount</th>
+    <th>date</th>
+  </tr>
+  {%for obj in obj_list%}
+  <tr>
+
+    <td>{{obj.txn_no}}</td>
+    <td>{{obj.txn_det}}</td>
+    <td>{{obj.txn_amt}}</td>
+    <td>{{obj.txn_date}}</td>
+  </tr>
+  {%endfor%}
+
+
+</table>
+
+
+
+</body>
+</html>

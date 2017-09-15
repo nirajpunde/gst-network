@@ -51,11 +51,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pro1.urls'
-
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,15 +88,15 @@ WSGI_APPLICATION = 'pro1.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'NAME': 'gst',
-        'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'gst',
+         'ENGINE': 'django.db.backends.mysql',
         'USER': 'root',
         'PASSWORD': 'root123',
         'HOST': 'localhost',
         'PORT': '3306' ,
         'OPTIONS': {'init_command': 'SET default_storage_engine =INNODB'},
+
     }
-    #'OPTIONS': {'init_command': 'SET storage_engine=INNODB'},
 }
 
 
