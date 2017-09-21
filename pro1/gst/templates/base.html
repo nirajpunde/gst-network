@@ -22,18 +22,26 @@ tr:nth-child(even) {
 </style>
 <table>
   <tr>
-    <th>txn_no</th>
-    <th>details</th>
-    <th>amount</th>
-    <th>date</th>
+    <th>gst_id</th>
+    <th>acc_no</th>
+    <th>bus_name</th>
+    <th>email_id</th>
+    <th>phone_no</th>
+    <th>hq_address</th>
+    <th>sector</th>
+
   </tr>
   {%for obj in obj_list%}
   <tr>
 
-    <td>{{obj.txn_no}}</td>
-    <td>{{obj.txn_det}}</td>
-    <td>{{obj.txn_amt}}</td>
-    <td>{{obj.txn_date}}</td>
+    <td>{{obj.gst_id}}</td>
+    <td>{{obj.acc_no}}</td>
+    <td>{{obj.bus_name}}</td>
+    <td>{{obj.email_id}}</td>
+    <td>{{obj.phone_no}}</td>
+    <td>{{obj.hq_address}}</td>
+    <td>{{obj.sector}}</td>
+
   </tr>
   {%endfor%}
 

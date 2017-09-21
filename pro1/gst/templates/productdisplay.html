@@ -1,0 +1,56 @@
+
+
+<html>
+
+<body>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<table>
+  <tr>
+    <th>prod_id</th>
+    <th>product name</th>
+    <th>product make</th>
+    <th>product type</th>
+    <th>manufacturer price</th>
+    <th>sell price</th>
+    <th>manufacturer id</th>
+    <th>applied_gst</th>
+
+  </tr>
+  {%for obj in obj_list%}
+  <tr>
+
+    <td>{{obj.prod_id}}</td>
+    <td>{{obj.prod_name}}</td>
+    <td>{{obj.prod_make}}</td>
+    <td>{{obj.prod_type}}</td>
+    <td>{{obj.manuf_price}}</td>
+    <td>{{obj.sell_price}}</td>
+    <td>{{obj.bus_id}}</td>
+    <td>{{obj.applied_gst}}</td>
+
+  </tr>
+  {%endfor%}
+
+
+</table>
+
+
+
+</body>
+</html>

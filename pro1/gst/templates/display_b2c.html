@@ -1,0 +1,57 @@
+
+
+<html>
+
+<body>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<table>
+  <tr>
+    <th>b2c_id</th>
+    <th>prod_id</th>
+    <th>seller_gst</th>
+    <th>quantity</th>
+    <th>unit price</th>
+    <th>total_price</th>
+    <th>tot_gst</th>
+    <th>b2c_txn_amt</th>
+    <th>txn_date</th>
+
+  </tr>
+  {%for obj in obj_list%}
+  <tr>
+
+    <td>{{obj.b2c_id}}</td>
+    <td>{{obj.prod_id}}</td>
+    <td>{{obj.seller_gst}}</td>
+    <td>{{obj.quantity}}</td>
+    <td>{{obj.unit_price}}</td>
+    <td>{{obj.total_price}}</td>
+    <td>{{obj.total_gst}}</td>
+    <td>{{obj.b2c_txn_amt}}</td>
+    <td>{{obj.b2c_txn_date}}</td>
+  </tr>
+  {%endfor%}
+
+
+</table>
+
+
+
+</body>
+</html>

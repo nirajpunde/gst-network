@@ -1,0 +1,16 @@
+<table>
+
+  <tr><td>gst_id</td> <td>{{qs.gst_id}}</td></tr>
+  <tr><td>account number</td> <td>{{qs.acc_no}}</td></tr>
+  <tr><td>business name</td> <td>{{qs.bus_name}}</td></tr>
+  <tr><td>email id</td> <td>{{qs.email_id}}</td></tr>
+  <tr><td>phone number</td> <td>{{qs.phone_no}}</td></tr>
+  <tr><td>address</td> <td>{{qs.hq_address}}</td></tr>
+  <tr><td>sector</td> <td>{{qs.sector}}</td></tr>
+
+</table>
+<div class =Form>
+  <form method="post">{% csrf_token %}
+    <button type="submit">delete</button>
+  </form>
+</div>

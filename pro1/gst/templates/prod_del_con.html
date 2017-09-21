@@ -1,0 +1,16 @@
+<table>
+  <tr><td>prod_id</td> <td>{{qs.prod_id}}</td></tr>
+  <tr><td>prod_name</td> <td>{{qs.prod_name}}</td></tr>
+  <tr><td>prod_make</td> <td>{{qs.prod_make}}</td></tr>
+  <tr><td>prod_type</td> <td>{{qs.prod_type}}</td></tr>
+  <tr><td>manufacturing price</td> <td>{{qs.manuf_price}}</td></tr>
+  <tr><td>selling price</td> <td>{{qs.sell_price}}</td></tr>
+  <tr><td>manufacturer id</td> <td>{{qs.bus_id}}</td></tr>
+  <tr><td>applied gst</td> <td>{{qs.applied_gst}}</td></tr>
+
+</table>
+<div class =Form>
+  <form method="post">{% csrf_token %}
+    <button type="submit">delete</button>
+  </form>
+</div>

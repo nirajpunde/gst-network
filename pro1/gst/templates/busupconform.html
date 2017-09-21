@@ -1,0 +1,18 @@
+<div class =Form>
+  <form method="post">{% csrf_token %}
+    <label for="acc_no">acc_no: </label>
+    <input id="acc_no" type="number" name="acc_no" value="{{qs.acc_no}}"><br>
+    <label for="bus_name">business name: </label>
+    <input id="bus_name" type="text" name="bus_name" value="{{qs.bus_name}}"><br>
+    <label for="email_id">Email ID: </label>
+    <input id="email_id" type="email_id" name="email_id" value="{{qs.email_id}}"><br>
+    <label for="phone_no">Phone Number: </label>
+    <input id="phone_no" type="number" name="phone_no" value="{{qs.phone_no}}"><br>
+    <label for="hq_address">office address: </label>
+    <input id="hq_address" type="text" name="hq_address" value="{{qs.hq_address}}"><br>
+    <label for="sector">sector: </label>
+    <input id="sector" type="text" name="sector" value="{{qs.sector}}">
+
+    <button type="Update">save</button>
+  </form>
+</div>

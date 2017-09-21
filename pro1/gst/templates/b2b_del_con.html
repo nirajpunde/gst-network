@@ -1,0 +1,18 @@
+<table>
+  <tr><td>b2c_id</td> <td>{{qs.b2b_id}}</td></tr>
+  <tr><td>prod_id</td> <td>{{qs.prod_id}}</td></tr>
+  <tr><td>seller_gst</td> <td>{{qs.seller_gst_id}}</td></tr>
+  <tr><td>buyer gst</td> <td>{{qs.buyer_gst_id}}</td></tr>
+  <tr><td>quantity</td> <td>{{qs.quantity}}</td></tr>
+  <tr><td>unit price</td> <td>{{qs.unit_price}}</td></tr>
+  <tr><td>total price</td> <td>{{qs.total_price}}</td></tr>
+  <tr><td>total gst</td> <td>{{qs.total_gst}}</td></tr>
+  <tr><td>b2c_txn_amt</td> <td>{{qs.b2b_txn_amt}}</td></tr>
+  <tr><td>b2c_txn_date</td> <td>{{qs.b2b_txn_date}}</td></tr>
+
+</table>
+<div class =Form>
+  <form method="post">{% csrf_token %}
+    <button type="submit">delete</button>
+  </form>
+</div>

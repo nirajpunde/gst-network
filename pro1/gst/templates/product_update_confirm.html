@@ -1,0 +1,20 @@
+<div class =Form>
+  <form method="post">{% csrf_token %}
+    <label for="prod_name">product name: </label>
+    <input id="prod_name" type="text" name="prod_name" value="{{qs.prod_name}}"><br>
+    <label for="prod_make">product make: </label>
+    <input id="prod_make" type="text" name="prod_make" value="{{qs.prod_make}}"><br>
+    <label for="prod_type">Product Type: </label>
+    <input id="prod_type" type="text" name="prod_type" value="{{qs.prod_type}}"><br>
+    <label for="manuf_price">manufacturing price: </label>
+    <input id="manuf_price" type="number" name="manuf_price" value="{{qs.manuf_price}}"><br>
+    <label for="sell_price">selling price: </label>
+    <input id="sell_price" type="number" name="sell_price" value="{{qs.sell_price}}"><br>
+    <label for="bus_id">manufacturer id: </label>
+    <input id="bus_id" type="number" name="bus_id" value="{{qs.bus_id}}"><br>
+    <label for="applied_gst">applied_gst: </label>
+    <input id="applied_gst" type="number" name="applied_gst" value="{{qs.applied_gst}}"><br>
+
+    <button type="Update">update</button>
+  </form>
+</div>
