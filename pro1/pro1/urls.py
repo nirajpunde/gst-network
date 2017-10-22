@@ -20,21 +20,24 @@ from django.views.generic import TemplateView
 from gst import views
 from django.urls import reverse
 
-from gst.views import GST_idAutocomplete
+#from gst.views import GST_idAutocomplete
 
 urlpatterns = [
     url(r'^$',views.home),
-    url(
-        r'^gst-autocomplete/$',
-        GST_idAutocomplete.as_view(),
-        name='gst-autocomplete',
-    ),
+    # url(
+    #     r'^gst-autocomplete/$',
+    #     GST_idAutocomplete.as_view(),
+    #     name='gst-autocomplete',
+    # ),
+
+    url(r'^about/$',views.about),
+
     url(r'^business/$',views.business),
     url(r'^business/create/$',views.create_business),
     url(r'^business/update/$',views.update_business),
     url(r'^business/update/confirm/(?P<id>[0-9]+)$',views.update_confirm),
     url(r'^business/delete/$',views.delete_business),
-    url(r'^business/delete/confirm/(?P<id>[0-9]+)$',views.delete_confirm),
+    url(r'^business/delete/confirm/(?P<id>[0-9]+)$',views.delete_confirm_bus),
     url(r'^business/display/$',views.display),
 
     url(r'^product/$',views.product),
@@ -60,6 +63,9 @@ urlpatterns = [
     url(r'^b2c/update/confirm/(?P<id>[0-9]+)$',views.b2c_update_confirm),
     url(r'^b2c/delete_txn/$',views.delete_b2c),
     url(r'^b2c/delete/confirm/(?P<id>[0-9]+)$',views.b2c_delete_confirm),
+
+    url(r'^view_by_bussiness/$',views.view_by_bussiness),
+    url(r'^view_by_bussiness/(?P<id>[0-9]+)$',views.view_con),
 
 
     url(r'^admin/', admin.site.urls),

@@ -1,18 +1,180 @@
-<table>
-  <tr><td>b2c_id</td> <td>{{qs.b2b_id}}</td></tr>
-  <tr><td>prod_id</td> <td>{{qs.prod_id}}</td></tr>
-  <tr><td>seller_gst</td> <td>{{qs.seller_gst_id}}</td></tr>
-  <tr><td>buyer gst</td> <td>{{qs.buyer_gst_id}}</td></tr>
-  <tr><td>quantity</td> <td>{{qs.quantity}}</td></tr>
-  <tr><td>unit price</td> <td>{{qs.unit_price}}</td></tr>
-  <tr><td>total price</td> <td>{{qs.total_price}}</td></tr>
-  <tr><td>total gst</td> <td>{{qs.total_gst}}</td></tr>
-  <tr><td>b2c_txn_amt</td> <td>{{qs.b2b_txn_amt}}</td></tr>
-  <tr><td>b2c_txn_date</td> <td>{{qs.b2b_txn_date}}</td></tr>
+ <style>
+#button1 {
+    background-color: #60a83a;
+    border: none;
+    color: white;
+    padding: 14px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    margin-left: 95px;
+    margin-top: 17px;
+    cursor: pointer;
+    border-radius: 12px
+}
+
+td{
+  padding: 10px 0;
+}
+body {
+     background: #0A0A0C;
+}
+
+.Form #mytable td{
+  padding: 10px;
+  padding-left: 5px;
+  border: 1px;
+  border-color: white;
+  text-align: left;
+  padding-left: 40px;
+
+}
+
+.Form #mytable table{
+    column-gap: 10px;
+}
+
+.Form #mytable tr{
+  margin-left: 10px;
+  border:1px solid #dddddd;
+  padding-left: 100px;
+
+}
+input[type=text],[type= number] {
+    width: 100%;
+    padding: 12px 60px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ededed;
+}
+
+label {
+    color: white;
+}
+div.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+margin-left:70px;
+align: center;
+margin-top: 35px;
+}
+div.form
+{
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 20px;
+
+}
+
+
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border-radius: 5px;
+    padding: 20px;
+    background: #0a0a0c;
+    font-family: 'Source Sans Pro', sans-serif;
+
+
+    #font-weight: bold;
+
+}
+tr.Form{
+  color: blue;
+}
+
+#emblem{
+        height: 75px;
+        width: 55px;
+        margin-top: -17px;
+        margin-left: -100px;
+}
+    h1{font-family: sans-serif; color: azure;margin-top: 1px;}
+
+    p{color: white};
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Display Business</title>
+  <!--{% load staticfiles %}-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href={%static 'gst/style2.css'%}>
+  <link rel="stylesheet" href={%static "gst/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={%static "gst/css/font-awesome.min.css"  %}>
+    <link rel ="stylesheet"  href={%static 'gst/style.css'%}>
+
+
+</head>
+
+<body style="background-color: #0A0A0C">
+<header class="site-header">
+
+            <div class="container">
+                <div class="row">
+
+                </div>
+            </div>
+
+        <nav class="navbar navbar-default" style="background-color: #0A0A0C">
+      <div class="container">
+
+        <a href="http://127.0.0.1:8000/" class="navbar-brand">
+          <img src="{%static "gst/emblem.png"%}" alt="emblem yahi banayenge" id="emblem">
+        </a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                    <ul class="nav navbar-nav main-navbar-nav">
+                        <li class="active"><a href="http://127.0.0.1:8000/" title="">HOME</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/about" title="">ABOUT</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/display" title="">OUR BUSINESSES</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/create" title="">REGISTER YOUR BUSINESS</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+        <!-- END MAIN NAVIGATION -->
+      </div>
+    </nav>
+    </header>
+
+
+<h1> Business to Business Transaction Delete Details</h1>
+<div class =Form>
+
+  <form method="post">{% csrf_token %}
+
+
+
+    <table id="mytable" style="color: white; margin-bottom: 5px; border: 1px solid #dddddd;border-color: white;border-collapse: seperate;border-spacing: 10px;">
+  <tr><td>B2B ID</td> <td>{{qs.b2b_id}}</td></tr>
+  <tr><td>Product ID</td> <td>{{qs.prod_id}}</td></tr>
+  <tr><td>Seller GST ID</td> <td>{{qs.seller_gst_id}}</td></tr>
+  <tr><td>Buyer GST ID</td> <td>{{qs.buyer_gst_id}}</td></tr>
+  <tr><td>Quantity</td> <td>{{qs.quantity}}</td></tr>
+  <tr><td>Unit Price</td> <td>{{qs.unit_price}}</td></tr>
+  <tr><td>Total Price</td> <td>{{qs.total_price}}</td></tr>
+  <tr><td>Total GST</td> <td>{{qs.total_gst}}</td></tr>
+  <tr><td>Transaction Amount</td> <td>{{qs.b2b_txn_amt}}</td></tr>
+  <tr><td>Transaction Date</td> <td>{{qs.b2b_txn_date}}</td></tr>
 
 </table>
-<div class =Form>
-  <form method="post">{% csrf_token %}
-    <button type="submit">delete</button>
+
+
+
+  <br>  <button id=button1 type="submit">delete</button>
   </form>
 </div>
+    </body>

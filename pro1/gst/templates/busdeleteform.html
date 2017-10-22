@@ -1,6 +1,140 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Insert Product</title>
+    <!--{% load staticfiles %}-->    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+    <link rel="stylesheet" href={%static "gst/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={%static "gst/css/font-awesome.min.css"  %}>
+    <link rel ="stylesheet"  href={%static 'gst/style.css'%}>
+    
+    
+</head>
+<body>
+    <header class="site-header">
+        
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>
+        
+        <nav class="navbar navbar-default" style="background-color: #0A0A0C">
+            <div class="container">
+                
+                <a href="GST.html" class="navbar-brand">
+                 <img src="{%static "gst/emblem.png"%}" alt="emblem yahi banayenge" id="emblem">                   
+                </a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                    <ul class="nav navbar-nav main-navbar-nav">
+
+                        <li class="active"><a href="http://127.0.0.1:8000/" title="">HOME</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/about" title="">ABOUT</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/display" title="">OUR BUSINESSES</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/create" title="">REGISTER YOUR BUSINESS</a></li>
+                    </ul>                           
+                </div><!-- /.navbar-collapse -->                
+                <!-- END MAIN NAVIGATION -->
+            </div>
+        </nav>        
+    </header>
+
+
+
+
+<h1>{{heading}}</h1>
+
 <div class =Form>
   <form method="post">{% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">delete</button>
+    <!-- {{form.as_p}} -->
+    {% for field in form %}
+        {{ field.label_tag }} {{ field }}<br><br>
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+{% endfor %}
+    <button type="submit" style="background-color: #60a83a;
+    border: none;
+    color: white;
+    padding: 14px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    margin-left: 40px;
+    margin-top: 17px;
+    cursor: pointer;
+    border-radius: 12px">SUBMIT</button>
   </form>
 </div>
+  </body>
+
+    </html>
+
+
+
+
+
+
+
+
+
+<style> 
+
+body {
+     background: #0a0a0c;
+}
+input[type=text],[type= number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ededed;
+}
+
+
+label {
+    color: #D3D3D3;
+}
+
+div.form
+{
+    display: block;
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 20px;
+
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border-radius: 5px;
+    padding: 20px;
+    background: #0a0a0c;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+    
+    #font-weight: bold;
+    
+}
+    h1{font-family: sans-serif; color: #D3D3D3;margin-top: 25px;text-align: center; font-size:35px}
+
+    
+#emblem{
+        height: 75px;
+        width: 55px;
+        margin-top: -17px;
+        margin-left: -100px;
+}
+
+
+</style>

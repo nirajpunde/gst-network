@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About</title>
+	{% load staticfiles %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+     <link rel="stylesheet" href={%static "gst/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={%static "gst/css/font-awesome.min.css"  %}>
+    <link rel ="stylesheet"  href={%static 'gst/style.css'%}>
+ </head>
+
+ <body>
+{% load staticfiles %}
+ <header class="site-header">
+        <div class="container">
+                <div class="row">
+                    
+                </div>
+        </div>
+    
+    <nav class="navbar navbar-default" style="background-color: #0A0A0C">
+            <div class="container">
+                
+                <a href="http://127.0.0.1:8000/" class="navbar-brand">
+                <img src="{%static "gst/emblem.png"%}" alt="emblem yahi banayenge" id="emblem">
+                </a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                    <ul class="nav navbar-nav main-navbar-nav">
+                        <li class="active"><a href="http://127.0.0.1:8000/" title="">HOME</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/about" title="">ABOUT</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/display" title="">OUR BUSINESSES</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/create" title="">REGISTER YOUR BUSINESS</a></li>
+                    </ul>                           
+                </div><!-- /.navbar-collapse -->                
+                <!-- END MAIN NAVIGATION -->
+            </div>
+    </nav>        
+ </header>
+
+
+ 	<h1 style="color: #D3D3D3"><i>ABOUT<i></h1>
+ 	<img src="{%static "gst/rupee.jpg"%}" alt="image here" align="right" >
+ 	<p><br>
+ 	<b><i>GOODS AND SERVICES TAX</i></b> is an indirect tax which was introduced in India on 1 July 2017<br> by the President of India, Pranab Mukherjee, and Prime Minister of India, Narendra Modi and<br> was applicable throughout India which replaced multiple cascading taxes levied by the central<br> and state governments. GST is levied on all transactions such as sale,transfer,purchase,barter,<br> lease etc. 
+ 	There are three applicable taxes uner GST: CGST, SGST and IGST. GST is administered<br> by both the Union and State Governments.
+ 	The Goods and Services Tax (GST) will be levied at<br> multiple rates ranging from 0 per cent to 28 per cent. GST Council finalised a four-tier GST tax<br> structure of  5%, 12%, 18% and 28%, with lower rates for essential items and the highest for<br> luxury and de-merits goods that would also attract an additional cess
+ 	<br><br>Introduction of GST would be a very significant step in the field of indirect tax reforms in India.<br> By amalgamating a large number of Central and State taxes into a single tax and allowing<br> set-off of prior-stage taxes, it would mitigate the ill effects of cascading and pave the way for a<br> common national market.
+ 	GST will improve the collection of taxes as well as boost<br> the development of Indian economy by removing the indirect tax barriers between states and<br> integrating the country thorugh a uniform tax rate.
+ 	   </p>
+ </body>
+ </html>
+
+ 
+
+ <style type = "text/css">
+    body{
+        background-color: #0A0A0C
+
+    }
+    h1{
+        color: white;
+        text-align: left;
+        font-family: Verdana;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    p{
+        color: white;
+        text-align: left;
+        line-height: 30px;
+        overflow: auto;
+        display:block;
+        max-width: 1500px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    img{
+        float: right;
+        margin-right: 100px;
+        clear: both;
+        height: 600px;
+        width: 500px;
+        margin-top: 20px;
+    }
+
+    #emblem{
+        height: 75px;
+        width: 55px;
+        margin-top: -17px;
+        margin-left: -100px;
+    }
+    </style>

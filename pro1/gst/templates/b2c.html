@@ -1,56 +1,114 @@
-<!Doctype html>
-<html>
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>B2C</title>
+	<!--{% load staticfiles %}-->    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+    
+
+   
+    <link rel="stylesheet" type="text/css" href={%static 'gst/style2.css'%}>
+	<link rel="stylesheet" href={%static "gst/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={%static "gst/css/font-awesome.min.css"  %}>
+    <link rel ="stylesheet"  href={%static 'gst/style.css'%}>
+    
+</head>
+<body style="background-color: #0A0A0C">
+ <header class="site-header">
+    
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>
+    
+        <nav class="navbar navbar-default" style="background-color: #0A0A0C">
+			<div class="container">
+	
+				<a href="GST.html" class="navbar-brand">
+                <img src="{%static "gst/emblem.png"%}" alt="emblem yahi banayenge" id="emblem">					
+				</a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                    <ul class="nav navbar-nav main-navbar-nav">
+                        <li class="active"><a href="http://127.0.0.1:8000/" title="">HOME</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/about" title="">ABOUT</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/display" title="">OUR BUSINESSES</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/create" title="">REGISTER YOUR BUSINESS</a></li>
+       
+                    </ul>                           
+                </div><!-- /.navbar-collapse -->                
+				<!-- END MAIN NAVIGATION -->
+			</div>
+		</nav>        
+    </header>
 
 
-.verticalmenu{
- width: 230px;
-line-height: 46px;
-  margin: auto;
-text-align: center;
-align-self: center;
-padding: 35px;
-}
+<h1 style="font-size: 50px;margin-left: 50px;margin-top: 70px">Manage Your Business to Customer Transactions</h1>
+<div class="container2">
+	<div class="homeBox">
+			<div class="one_fourth">
 
-div.verticalmenu a{
-text-align: center;
-margin: auto;
-font-family: 'Playfair Display', serif;
-background-color:#eee;
-color: black;
-display: block;
-padding: 7px;
-text-decoration: none;
-}
+				<div class = "boxImage"><img src = "{% static "gst/new.png"%}" ></div>	
 
-.verticalmenu a:hover{
- background-color: #ccc;
-}
+				<h2 onclick=location.href="http://127.0.0.1:8000/b2c/add_txn">INSERT</h2>			
 
-.verticalmenu a.active{
-background-color:#66CCCC;
-color: white;
-cursor:default;
-}
+				<div class = "boxDescription">SOmething about create</div>	
 
-h1{
-color: #708090;
-font-family: 'Playfair Display', serif;
-font-size: 35px;
-margin: auto;
-text-align: center;
-padding: 5px;
-}
-</style>
+			</div>
 
-<body>
-<h1>B2C TRANSACTION DATABASE</h1>
-<div class="verticalmenu">
-<a href="#" class="active">OPERATIONS</a>
-<a href="http://127.0.0.1:8000/b2c/add_txn">Insert</a>
-<a href="http://127.0.0.1:8000/b2c/update_txn">Update</a>
-<a href="http://127.0.0.1:8000/b2c/delete_txn">Delete</a>
-<a href="http://127.0.0.1:8000/b2c/display_txn">Display</a>
+			<div class="one_fourth">
+
+				<div class = "boxImage"><img src = "{% static "gst/131.png"%}"></div>	
+
+				<h2 onclick=location.href="http://127.0.0.1:8000/b2c/display_txn">DISPLAY</h2>
+
+				<div class = "boxDescription"> Something about display</div>				
+
+			</div>
+
+			<div class="one_fourth">
+
+				<div class = "boxImage"><img src = "{% static "gst/up1.jpg"%}"></div>	
+
+				<h2 onclick=location.href="http://127.0.0.1:8000/b2c/update_txn">UPDATE</h2>
+
+				<div class = "boxDescription"> Something about update</div>				
+
+			</div>
+
+			<div class="one_fourth last">
+
+				<div class = "boxImage"><img src = "{% static "gst/45.png"%}"></div>	
+
+				<h2 onclick=location.href="http://127.0.0.1:8000/b2c/delete_txn">DELETE</h2>
+
+				<div class = "boxDescription">Something about delete</div>
+				
+
+			</div>
+
+		</div>	
 </div>
 </body>
 </html>
+
+
+
+<!-- <a href="http://127.0.0.1:8000/b2c/add_txn">Insert</a>
+<a href="http://127.0.0.1:8000/b2c/update_txn">Update</a>
+<a href="http://127.0.0.1:8000/b2c/delete_txn">Delete</a>
+<a href="http://127.0.0.1:8000/b2c/display_txn">Display</a> -->
+
+<style type="text/css">
+	
+	#emblem{
+        height: 75px;
+        width: 55px;
+        margin-top: -17px;
+        margin-left: -100px;
+    }
+</style>

@@ -1,21 +1,24 @@
-
+<!--
 <html>
 <head>
   {% load staticfiles %}
 
 <link rel ="stylesheet"  href={%static 'gst/style.css'%}>
 
-<title>GST IMPLEMENTATION</TITLE>
+<title>GST APPLICATION</TITLE>
 </head>
-<body>
+{% load staticfiles %}
+<body style="background-color:#0A0A0C">
+
+ {% load staticfiles %}
+
+<img src="{% static "gst/p4.jpg "%}" alt="" width="1340" height="700">
+
 
 <div style= "color:#696969">
-<h1> GST Implementation</h1>
+<h1> GST APPLICATION</h1>
 </div>
 
-<div style= "color:#66CCCC">
-<h2> Entities</h2>
-</div>
 
 <div class="tab">
 
@@ -26,5 +29,106 @@
 <button class="tablink" onclick=location.href="http://127.0.0.1:8000/b2c">B2C Transactions</button>
 
 </div>
+
 </body>
 </html>
+
+
+ -->
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goods and Service Tax</title>
+	{% load staticfiles %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href={%static "gst/css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={%static "gst/css/font-awesome.min.css"  %}>
+    <link rel ="stylesheet"  href={%static 'gst/style.css'%}>
+</head>
+<body>
+	{% load staticfiles %}
+    <header class="site-header">
+            <div class="container">
+                <div class="row">
+
+                </div>
+            </div>
+        <nav class="navbar navbar-default" style="background-color: #0A0A0C">
+			<div class="container">
+
+				<a href="GST.html" class="navbar-brand">
+				<img src="static/gst/emblem.png" alt="Post" height="75px" style="position: absolute;bottom:1px;right:1200px;">
+				</a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+                    <ul class="nav navbar-nav main-navbar-nav">
+                        <li class="active"><a href="http://127.0.0.1:8000/" title="">HOME</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/about" title="">ABOUT</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/display" title="">OUR BUSINESSES</a></li>
+                        <li><a href="#" onclick=location.href="http://127.0.0.1:8000/business/create" title="">REGISTER YOUR BUSINESS</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+				<!-- END MAIN NAVIGATION -->
+			</div>
+		</nav>
+    </header>
+    <main class="site-main">
+        <section class="hero_area">
+            <div class="hero_content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="boxes_area" style="background-color:#0A0A0C;" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <h3 onclick=location.href="http://127.0.0.1:8000/business">BUSINESSES</h3>
+                            <p>something about businesses</p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <h3 onclick=location.href="http://127.0.0.1:8000/product/">PRODUCTS</h3>
+                            <p>something about products</p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <h3 onclick=location.href="http://127.0.0.1:8000/b2b/">B2B TRANSACTIONS</h3>
+                            <p>something about b2b transaction</p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <h3 onclick=location.href="http://127.0.0.1:8000/b2c/">B2C TRANSACTIONS</h3>
+                            <p>something about b2c transaction</p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="box">
+                            <h3 onclick=location.href="http://127.0.0.1:8000/view_by_bussiness/">Business wise txn</h3>
+                            <p>something about business wise transaction</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

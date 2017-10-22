@@ -11,13 +11,13 @@ import MySQLdb
 from .forms import Businessform,Update_business_form,Upconbusform,Delete_business_form,Productform,delete_b2c_form,update_b2b_form
 from .forms import Update_product_form,product_update_conf,delete_product_form,b2c_txn_create,update_b2c_form,b2b_txn_create,delete_b2b_form
 from django.http import HttpResponseRedirect
-from dal import autocomplete
+#from dal import autocomplete
 from django.shortcuts import redirect
 
 
 
 # Create your views here.
-class GST_idAutocomplete(autocomplete.Select2QuerySetView):
+"""class GST_idAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         # Don't forget to filter out results depending on the visitor
 
@@ -26,11 +26,11 @@ class GST_idAutocomplete(autocomplete.Select2QuerySetView):
         if self.q:
             qs = qs.filter(name__istartswith=self.q)
 
-        return qs
+        return qs"""
 
 def home(request):
-    context= {}
-    return render(request,"GST.html",context)
+     context= {}
+     return render(request,"GST.html",context)
 
 def product(request):
     context={}
@@ -79,8 +79,10 @@ def create_business(request):
             con.rollback()
 
         return HttpResponseRedirect("/business/")
+    heading="Insert Your Business Details"
     context={
-        'form':form
+        'form':form,
+        'heading':heading,
     }
 
     return render(request,"businessform.html",context)
@@ -102,8 +104,11 @@ def update_business(request):
             return redirect(link)
         else:
             return HttpResponseRedirect("/business/errors")
-
-    context={'form':form}
+    heading="Enter GST ID of the Business you want to Update"
+    context={
+    'form':form,
+    'heading':heading,
+    }
     return render(request,"busupdateform.html",context)
 
 
@@ -128,7 +133,7 @@ def update_confirm(request,*args,**kwargs):
         con = MySQLdb.connect("localhost","root","root123","gst")
         cursor=con.cursor()
 
-        query="update gst_businesses set acc_no=%d,bus_name='%s',email_id='%s',phone_no=%i,hq_address='%s',sector='%s where gst_id=%d'"%(acc_no,bus_name,email_id,phone_no,hq_address,sector,gst_id)
+        query="update gst_businesses set acc_no=%d,bus_name='%s',email_id='%s',phone_no=%i,hq_address='%s',sector='%s' where gst_id=%d"%(acc_no,bus_name,email_id,phone_no,hq_address,sector,gst_id)
         print(query)
         try:
             cursor.execute(query)
@@ -138,6 +143,7 @@ def update_confirm(request,*args,**kwargs):
             con.rollback()
 
         return HttpResponseRedirect("/business/")
+
     context={
         'form':form,
         'qs'  :qs,
@@ -162,11 +168,11 @@ def delete_business(request):
             return redirect(link)
         else:
             return HttpResponseRedirect("/business/errors")
-
-    context={'form':form}
+    heading="Select GST ID of the Business you wish to Delete"
+    context={'form':form,'heading':heading}
     return render(request,"busdeleteform.html",context)
 
-def delete_confirm(request,*args,**kwargs):
+def delete_confirm_bus(request,*args,**kwargs):
     gst_id = int(kwargs.get('id'))
     print("inside update conform")
     print(gst_id)
@@ -191,6 +197,7 @@ def delete_confirm(request,*args,**kwargs):
             con.rollback()
 
         return HttpResponseRedirect("/business/")
+
     context={
         'qs'  :qs,
     }
@@ -221,11 +228,13 @@ def create_product(request):
             con.rollback()
 
         return HttpResponseRedirect("/product/")
+    heading ="Insert Product Details"
     context={
-        'form':form
+        'form':form,
+        'heading':heading,
     }
 
-    return render(request,"businessform.html",context)
+    return render(request,"productform.html",context)
 
 def productdisplay(request):
     qs=products.objects.raw("select * from gst_products")
@@ -251,8 +260,8 @@ def update_product(request):
             return redirect(link)
         else:
             return HttpResponseRedirect("/product/errors")
-
-    context={'form':form}
+    heading="Enter GST ID of Product you want to Update"
+    context={'form':form,'heading':heading}
     return render(request,"busupdateform.html",context)
 
 def product_update_confirm(request,*args,**kwargs):
@@ -406,7 +415,11 @@ def update_b2c(request):
         else:
             return HttpResponseRedirect("/product/errors")
 
-    context={'form':form}
+    heading ="Enter B2C Transaction ID"
+    context={
+        'form':form,
+        'heading':heading,
+    }
     return render(request,"busupdateform.html",context)
 
 def b2c_update_confirm(request,*args,**kwargs):
@@ -470,7 +483,11 @@ def delete_b2c(request):
         else:
             return HttpResponseRedirect("/b2c/errors")
 
-    context={'form':form}
+    heading ="Enter B2C Transaction ID"
+    context={
+        'form':form,
+        'heading':heading,
+    }
     return render(request,"busdeleteform.html",context)
 
 def b2c_delete_confirm(request,*args,**kwargs):
@@ -561,7 +578,11 @@ def update_b2b(request):
         else:
             return HttpResponseRedirect("/product/errors")
 
-    context={'form':form}
+    heading ="Update B2B Transaction Details"
+    context={
+        'form':form,
+        'heading':heading,
+    }
     return render(request,"busupdateform.html",context)
 
 def b2b_update_confirm(request,*args,**kwargs):
@@ -627,7 +648,12 @@ def delete_b2b(request):
         else:
             return HttpResponseRedirect("/b2b/errors")
 
-    context={'form':form}
+    heading ="Enter B2B Transaction ID"
+    context={
+        'form':form,
+        'heading':heading,
+    }
+
     return render(request,"busdeleteform.html",context)
 
 def b2b_delete_confirm(request,*args,**kwargs):
@@ -656,3 +682,51 @@ def b2b_delete_confirm(request,*args,**kwargs):
     }
 
     return render(request,"b2b_del_con.html",context)
+
+def about(request):
+    context= {}
+    return render(request,"about1.html",context)
+
+def view_by_bussiness(request):
+    form = Delete_business_form(request.POST)
+    if request.method == "POST":
+        temp  =  int(request.POST.get('gst_id'))
+
+        con = MySQLdb.connect("localhost","root","root123","gst")
+        cursor=con.cursor()
+        query="select * from gst_businesses where gst_id = %d"%(temp)
+        print(query)
+        qs = businesses.objects.raw(query)[0]
+        if qs:
+            link="http://127.0.0.1:8000/view_by_bussiness/%d"%(temp)
+            return redirect(link)
+        else:
+            return HttpResponseRedirect("/business/errors")
+    heading="Select GST ID of the Business you wish to View Transaction"
+    context={'form':form,'heading':heading}
+    return render(request,"busdeleteform.html",context)
+
+def view_con(request,*args,**kwargs):
+    temp = int(kwargs.get('id'))
+    query="select * from gst_b2c_txn where seller_gst_id =%d"%(temp)
+    b2c_qs = b2c_txn.objects.raw(query)
+
+    b2c_gst=0
+
+    for obj in b2c_qs:
+        b2c_gst=b2c_gst+obj.total_gst
+
+    print(b2c_gst)
+    query="select * from gst_b2b_txn where seller_gst_id =%d"%(temp)
+    b2b_qs = b2b_txn.objects.raw(query)
+    b2b_gst=0
+
+    for obj in b2b_qs:
+        b2b_gst=b2b_gst+obj.total_gst
+
+    print(b2b_gst)
+
+    gt_gst=b2c_gst+b2b_gst
+    heading='Business Transaction Page '
+    context={'heading':heading,'b2c_qs':b2c_qs,'b2b_qs':b2b_qs,'gt_gst':gt_gst,}
+    return render(request,"bustxn.html",context)
